@@ -5,13 +5,11 @@
 		<listener class-name="api.utilities.ExtentReportUtility"/>
 	</listeners>
   <test  name="Test">
-	  <groups>
-   			<run>
-   				<include name = "scenario3"></include>		
-   			</run>
-   		</groups>
     <classes>
       <class name="api.tests.Tests"/>
+      <class name="api.tests.Scenario1"/>
+      <class name="api.tests.Scenario2"/>
+      <class name="api.tests.Scenario3"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
