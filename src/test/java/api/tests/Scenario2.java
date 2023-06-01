@@ -3,10 +3,8 @@ package api.tests;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-
 import org.testng.annotations.Test;
-
-import api.constants.Endpoints;
+import api.constants.Params;
 import api.constants.PetEndPoints;
 import io.restassured.response.Response;
 
@@ -21,8 +19,8 @@ public void postPet() {
 	}
 @Test(priority=2)
 public void getPetById() {
-	  Endpoints idValue = Endpoints.ID;
-	  Endpoints updatedIdValue = Endpoints.ID1;
+	Params idValue = Params.ID;
+	  Params updatedIdValue = Params.ID1;
 	  
 		Response response = PetEndPoints.getPetById(idValue.getValue());
 		      response.then().assertThat().statusCode(is(equalTo(200)));
@@ -43,7 +41,8 @@ public void getPetByStatus() {
 }
 @Test(priority=4)
 public void delPet() {
-	Response response = PetEndPoints.deletePet(3222);
+	Params idValue = Params.ID;
+	Response response = PetEndPoints.deletePet(idValue.getValue());
 	
 	response.then().assertThat().statusCode(is(equalTo(200)));
 }
