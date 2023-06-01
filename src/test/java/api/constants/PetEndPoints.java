@@ -24,9 +24,12 @@ import io.restassured.specification.RequestSpecification;
 
 public class PetEndPoints {
 	
-	public static Response addPet() throws FileNotFoundException {
+	public static Response addPet() {
     	
-        File f = new File(".\\petdata.json");
+         String path=System.getProperty("user.dir")+"//testData//petdata.json";
+    	
+    	try {
+        File f = new File(path);
 		
 		FileReader fr = new FileReader(f);
 		
@@ -41,9 +44,16 @@ public class PetEndPoints {
 		                     .body(jo.toString())
 		
 		                   .when()
-		                       .post(Routes.postPetById);
-		
+		                       .post(Routes.updatePet);
 		return response;
+		
+    	} 
+    	catch (FileNotFoundException e) {
+    		System.out.println("Given file location is wrong");
+
+    	}
+		return null;	
+	
 		                       
 	}
     public static void addPetByImage()  {
@@ -102,9 +112,12 @@ public class PetEndPoints {
 		  
 	}
     
-    public static Response updatePet() throws FileNotFoundException {
+    public static Response updatePet() {
     	
-        File f = new File(".\\UpdatedPetData.json");
+    	String path=System.getProperty("user.dir")+"//testData//UpdatedPetData.json";
+    	
+    	try {
+        File f = new File(path);
 		
 		FileReader fr = new FileReader(f);
 		
@@ -120,8 +133,14 @@ public class PetEndPoints {
 		
 		                   .when()
 		                       .post(Routes.updatePet);
-		
 		return response;
+		
+    	} 
+    	catch (FileNotFoundException e) {
+    		System.out.println("Given file location is wrong");
+
+    	}
+		return null;	
 		                       
 	}
 	
