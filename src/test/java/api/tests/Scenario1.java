@@ -2,7 +2,7 @@ package api.tests;
 
 import org.testng.annotations.Test;
 import static org.hamcrest.Matchers.*;
-import api.constants.Endpoints;
+import api.constants.Params;
 import api.constants.PetEndPoints;
 import io.restassured.response.Response;
 
@@ -23,8 +23,8 @@ public class Scenario1 {
 	}
   @Test(priority=3)
   public void getPetById() {
-	  Endpoints idValue = Endpoints.ID;
-	  Endpoints updatedIdValue = Endpoints.ID1;
+	  Params idValue = Params.ID;
+	  Params updatedIdValue = Params.ID1;
 	  
 		Response response = PetEndPoints.getPetById(idValue.getValue());
 		
