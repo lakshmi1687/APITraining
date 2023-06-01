@@ -1,16 +1,13 @@
 package api.tests;
 
-import java.io.FileNotFoundException;
-
 import org.testng.annotations.Test;
-
 import api.constants.PetEndPoints;
 import io.restassured.response.Response;
 
 public class Scenario3 {
 	@Test(priority=1)
 	
-public void postPet() throws FileNotFoundException {
+public void postPet() {
 		
 		Response response = PetEndPoints.addPet();
 		
@@ -23,7 +20,7 @@ public void postPet() throws FileNotFoundException {
 		PetEndPoints.addPetByImage();
 	}
 	@Test(priority=3)
-public void putUser() throws FileNotFoundException {
+public void putUser() {
 		
 		Response response = PetEndPoints.updatePet();
 		
@@ -32,6 +29,7 @@ public void putUser() throws FileNotFoundException {
 //		int id = response.jsonPath().get("category.id");
 //		Assert.assertEquals(id, 3101);
 	}
+	
 @Test(priority=4)
 public void delPet() {
 	Response response = PetEndPoints.deletePet(3222);
